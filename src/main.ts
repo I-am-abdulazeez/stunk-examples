@@ -1,7 +1,9 @@
-import './style.css';
+import { chunk } from 'stunk';
+
 import typescriptLogo from './typescript.svg';
 import viteLogo from '/vite.svg';
-import { chunk } from 'stunk'; // Import your library
+
+import './style.css';
 
 
 const count = chunk(5);
