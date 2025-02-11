@@ -1,24 +1,10 @@
-import { chunk } from 'stunk';
 
 import typescriptLogo from './typescript.svg';
 import viteLogo from '/vite.svg';
 
+import { setupCounter } from './counterChunk';
+
 import './style.css';
-
-
-const count = chunk(5);
-const doubleCount = count.derive((value) => value * 2);
-
-const userChunk = chunk({
-  name: "Olamide",
-  age: 30,
-  email: "olamide@example.com",
-});
-
-userChunk.set({
-  ...userChunk.get(),
-  age: 30
-})
 
 
 document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
@@ -35,30 +21,15 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
       <p id="counter"></p>
       <p id="double"></p>
     </div>
-    <p class="read-the-docs">
-      Click on the Vite and TypeScript logos to learn more
-    </p>
   </div>
 `;
 
 // Get the button element
-const counterButton = document.querySelector<HTMLButtonElement>('#countbtn')!;
-const counter = document.querySelector<HTMLButtonElement>('#counter')!;
-const double = document.querySelector<HTMLButtonElement>('#double')!;
+const counterBtn = document.querySelector<HTMLButtonElement>('#countbtn');
+const count = document.querySelector<HTMLParagraphElement>('#counter');
+const doubledCount = document.querySelector<HTMLParagraphElement>('#double');
 
-if (counterButton) {
-  count.subscribe((value) => {
-    counter.textContent = `Count: ${value}`
-  });
-  doubleCount.subscribe((value) => {
-    double.textContent = `Double: ${value}`
-  });
 
-  counterButton.addEventListener('click', () => {
-    let curr_value = count.get()
-    count.set(curr_value + 1)
-  });
-
-  // Initialize the button text
-  count.set(0)
+if (counterBtn && count && doubledCount) {
+  setupCounter({ counterBtn, count, doubledCount })
 }
