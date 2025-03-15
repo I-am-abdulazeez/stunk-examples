@@ -5,7 +5,7 @@ export default function Index() {
   return (
     <>
       <Brands />
-      <h1 className="font-semibold">Vite + React + Stunk</h1>
+      <h1 className="text-4xl font-semibold">Vite + React + Stunk</h1>
       <h3 className="text-2xl my-5">
         This examples demonstrates how to use Stunk with React.
       </h3>
