@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+
 import Brands from "../components/brands";
 
 export default function Index() {
