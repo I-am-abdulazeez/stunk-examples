@@ -1,6 +1,7 @@
 import { useChunk, useDerive } from "stunk/react";
 
 import CounterRef from "../components/counter-ref";
+import GoBack from "../components/go-back";
 
 import { counter } from "../store/counter";
 
@@ -72,6 +73,8 @@ export default function Counter() {
             Redo
           </button>
         </div>
+
+        <GoBack />
       </div>
     </div>
   );
