@@ -1,9 +1,10 @@
 import { useChunk, useDerive } from "stunk/react";
 
-import CounterRef from "../components/counter/counter-ref";
-import GoBack from "../components/shared/go-back";
+import CounterRef from "@/components/counter/counter-ref";
+import GoBack from "@/components/shared/go-back";
+import Heading from "@/components/shared/heading";
 
-import { counter } from "../store/counter-store";
+import { counter } from "@/store/counter-store";
 
 export default function Counter() {
   const [count, set_count, reset_count] = useChunk(counter);
@@ -14,10 +15,7 @@ export default function Counter() {
 
   return (
     <div className="flex flex-col items-center justify-center p-4">
-      <div className="text-center mb-3">
-        <h1 className="text-4xl font-bold text-indigo-300 mb-2">Counter</h1>
-        <div className="h-1 w-24 bg-indigo-500 mx-auto rounded"></div>
-      </div>
+      <Heading text="Counter" />
 
       <div className="rounded-lg p-8 w-full max-w-md">
         <div className="flex flex-col items-center space-y-6 mb-8">
@@ -32,19 +30,19 @@ export default function Counter() {
           </div>
         </div>
 
-        <div className="flex justify-between gap-4 mb-6">
+        <div className="flex flex-col justify-between gap-4 mb-6">
           <button
             onClick={() => set_count((prev) => prev + 1)}
-            className="btn btn-primary btn-lg"
+            className="btn btn-primary btn-lg w-full"
           >
             Increment
           </button>
 
           <button
             onClick={() => set_count((prev) => prev - 1)}
-            className={`btn btn-secondary btn-lg ${
+            className={`btn btn-secondary btn-lg w-full ${
               count <= 0 && "btn-disabled" // you can remove this logic -- You will decrement to negative
-            } `}
+            }`}
           >
             Decrement
           </button>
@@ -67,6 +65,7 @@ export default function Counter() {
           </button>
 
           <button
+            aria-disabled={!canRedo}
             className={`btn btn-info btn-lg ${!canRedo && "btn-disabled"}`}
             onClick={() => counter.redo()}
           >
