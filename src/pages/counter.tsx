@@ -1,6 +1,6 @@
 import { useChunk, useDerive } from "stunk/react";
 
-import CounterRef from "../components/counter-ref";
+import CounterRef from "../components/counter/counter-ref";
 import GoBack from "../components/go-back";
 
 import { counter } from "../store/counter";
