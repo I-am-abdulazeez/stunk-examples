@@ -9,6 +9,8 @@ import {
   showCategoryFormChunk,
   todosChunk,
 } from "@/store/todo-store";
+import TodoCategory from "./todos-category";
+import TodoFilter from "./todos-filter";
 
 export default function TodoForm() {
   const [todos, setTodos] = useChunk(todosChunk);
@@ -61,6 +63,7 @@ export default function TodoForm() {
   return (
     <div className="border-gray-50 rounded-lg mb-6">
       <h2 className="text-xl font-semibold mb-4 text-gray-700">Add New Task</h2>
+      <TodoFilter />
       <form onSubmit={handleAddTodo} className="flex flex-col gap-4">
         <input
           type="text"
@@ -110,6 +113,9 @@ export default function TodoForm() {
               >
                 Add
               </button>
+            </div>
+            <div className="mt-4 flex gap-3">
+              <TodoCategory />
             </div>
           </div>
         )}
