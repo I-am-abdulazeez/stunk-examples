@@ -1,9 +1,9 @@
 import { useChunk, useDerive } from "stunk/react";
 
 import CounterRef from "../components/counter/counter-ref";
-import GoBack from "../components/go-back";
+import GoBack from "../components/shared/go-back";
 
-import { counter } from "../store/counter";
+import { counter } from "../store/counter-store";
 
 export default function Counter() {
   const [count, set_count, reset_count] = useChunk(counter);
