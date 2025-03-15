@@ -13,7 +13,7 @@ This repository contains 10 example applications demonstrating how to use **Stun
 
 ## Introduction
 
-[Stunk](https://github.com/I-am-abdulazeez/stunk) is a lightweight, framework-agnostic state management library. This repository showcases 10 different use cases for integrating Stunk with React. You can also switch to other branches to see how Stunk is use in vanilla-js, vanilla-ts.
+[Stunk](https://github.com/I-am-abdulazeez/stunk) is a lightweight, framework-agnostic state management library. This repository showcases 10 different use cases for integrating Stunk with React.
 
 ## Installation
 
@@ -21,11 +21,19 @@ Before running any of the example apps, ensure you have Node.js installed. Then,
 
 ```sh
 # Clone the repository
-git clone https://github.com/I-am-abdulazeez/stunk-test.git
+git clone https://github.com/I-am-abdulazeez/stunk-examples.git
 cd stunk-examples
 
 # Install dependencies
-yarn install  # or npm install
+pnpm install  # or npm install or yarn install
+```
+
+## Usage
+
+Check the `pages/` directory to see each app.
+
+```sh
+pnpm run dev  # or npm run dev or yarn dev
 ```
 
 ## Example Apps
@@ -70,14 +78,9 @@ A multi-step form using Stunk to persist state between steps.
 
 A task management board with drag-and-drop functionality.
 
-## Usage
+You can also switch to other branches to see how Stunk is used in vanilla JS, vanilla TS, etc.
 
-Each example is inside the `apps/` folder. Navigate into any app and start the development server:
-
-```sh
-cd apps/basic-counter
-yarn dev  # or npm run dev
-```
+You can also switch to other branches to see how Stunk is used in vanilla JS, vanilla TS, etc.
 
 ## Contributing
 
