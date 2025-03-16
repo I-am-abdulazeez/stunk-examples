@@ -31,6 +31,9 @@ export default function Index() {
           <Link to={"/cart"}>
             <button className="btn btn-lg">Shopping Cart</button>
           </Link>
+          <Link to={"/users"}>
+            <button className="btn btn-lg">Fetch Users</button>
+          </Link>
         </div>
       </div>
     </>
