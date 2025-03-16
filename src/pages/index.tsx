@@ -22,6 +22,9 @@ export default function Index() {
           <Link to={"/todo"}>
             <button className="btn btn-lg">Todo</button>
           </Link>
+          <Link to={"/theme-switch"}>
+            <button className="btn btn-lg">Theme Switch</button>
+          </Link>
         </div>
       </div>
     </>
