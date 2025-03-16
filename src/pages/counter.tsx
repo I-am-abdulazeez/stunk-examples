@@ -20,7 +20,9 @@ export default function Counter() {
       <div className="rounded-lg p-8 w-full max-w-md">
         <div className="flex flex-col items-center space-y-6 mb-8">
           <div className="relative">
-            <div className="text-6xl font-bold text-white">{count}</div>
+            <div className="text-6xl font-bold text-gray-700 dark:text-white">
+              {count}
+            </div>
             <CounterRef count={count} />
           </div>
 
