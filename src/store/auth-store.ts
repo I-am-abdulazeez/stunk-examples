@@ -1,7 +1,7 @@
 import { chunk } from "stunk";
 import { withPersistence } from "stunk/middleware";
 
-type User = {
+export type User = {
   id: string;
   name: string;
   email: string;
