@@ -1,13 +1,16 @@
 import { useChunk } from "stunk/react";
 
-import { authChunk, login, logout } from "@/store/auth-store";
+import Heading from "@/components/shared/heading";
 import GoBack from "@/components/shared/go-back";
+
+import { authChunk, login, logout } from "@/store/auth-store";
 
 export default function AuthManager() {
   const [auth] = useChunk(authChunk);
 
   return (
     <>
+      <Heading text="Auth Manager" />
       <div className="flex flex-col items-center gap-4 p-6 border-2 border-gray-700 rounded-lg">
         {auth.loading ? (
           <button className="btn">
