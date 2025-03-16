@@ -1,7 +1,19 @@
 import { chunk, computed } from "stunk";
 import { withHistory } from "stunk/middleware";
 
-import { Category, Todo } from "../types";
+
+export type Todo = {
+  id: string;
+  text: string;
+  completed: boolean;
+  categoryId: string;
+  createdAt: Date;
+};
+
+export type Category = {
+  id: string;
+  name: string;
+};
 
 export const todosChunk = withHistory(chunk<Todo[]>([]));
 export const categoriesChunk = chunk<Category[]>([
@@ -16,11 +28,6 @@ export const showCategoryFormChunk = chunk(false);
 export const filterChunk = chunk('all');
 
 
-/* stats and filtered todos will be used by vanilla ts and js.
-   React, Vue or any other framework should leverage on their bindings
-
-   We use computed here because it is based on heavy calc
-*/
 export const stats = computed([todosChunk], (allTodos) => {
   return {
     total: allTodos.length,
@@ -29,7 +36,6 @@ export const stats = computed([todosChunk], (allTodos) => {
   };
 });
 
-// compute filtered todos with stunk computed -- We use computed here because it is based on multiple chunks.
 export const filteredTodos = computed([todosChunk, filterChunk], (allTodos, currentFilter) => {
   if (currentFilter === 'all') return allTodos;
   if (currentFilter === 'completed') return allTodos.filter(todo => todo.completed);
