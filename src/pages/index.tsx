@@ -28,6 +28,9 @@ export default function Index() {
           <Link to={"/auth-manager"}>
             <button className="btn btn-lg">Auth Manager</button>
           </Link>
+          <Link to={"/cart"}>
+            <button className="btn btn-lg">Shopping Cart</button>
+          </Link>
         </div>
       </div>
     </>
