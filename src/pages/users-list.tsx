@@ -1,14 +1,16 @@
 import { useAsyncChunk } from "stunk/react";
 
-import { usersChunk } from "@/store/users-store";
 import Heading from "@/components/shared/heading";
+import GoBack from "@/components/shared/go-back";
+
+import { usersChunk } from "@/store/users-store";
 
 export default function UserList() {
   const { data, loading, error, reload } = useAsyncChunk(usersChunk);
 
   return (
     <div className="p-4">
-      <Heading text="Users " />
+      <Heading text="Users List" />
       {loading && <p className="text-blue-500">Loading...</p>}
       {error && <p className="text-red-500">Error: {error.message}</p>}
 
@@ -20,9 +22,10 @@ export default function UserList() {
         ))}
       </ul>
 
-      <button onClick={() => reload()} className="btn btn-primary mt-4">
-        Refresh
+      <button onClick={() => reload()} className="btn btn-primary btn-lg mt-4">
+        Reload
       </button>
+      <GoBack />
     </div>
   );
 }
