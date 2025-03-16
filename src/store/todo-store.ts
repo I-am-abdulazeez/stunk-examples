@@ -1,6 +1,7 @@
 import { chunk, computed } from "stunk";
-import { Category, Todo } from "../types";
 import { withHistory } from "stunk/middleware";
+
+import { Category, Todo } from "../types";
 
 export const todosChunk = withHistory(chunk<Todo[]>([]));
 export const categoriesChunk = chunk<Category[]>([
