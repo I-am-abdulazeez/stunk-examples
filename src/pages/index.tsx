@@ -25,6 +25,9 @@ export default function Index() {
           <Link to={"/theme-switch"}>
             <button className="btn btn-lg">Theme Switch</button>
           </Link>
+          <Link to={"/auth-manager"}>
+            <button className="btn btn-lg">Auth Manager</button>
+          </Link>
         </div>
       </div>
     </>
