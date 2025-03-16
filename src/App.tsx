@@ -6,6 +6,7 @@ import Todo from "./pages/todo";
 import ThemeSwitcher from "./pages/theme-switcher";
 import AuthManager from "./pages/auth-manager";
 import ShoppingCart from "./pages/cart";
+import UsersList from "./pages/users-list";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
       <Route path="/theme-switch" element={<ThemeSwitcher />} />
       <Route path="/auth-manager" element={<AuthManager />} />
       <Route path="/cart" element={<ShoppingCart />} />
+      <Route path="/users" element={<UsersList />} />
     </Routes>
   );
 }
