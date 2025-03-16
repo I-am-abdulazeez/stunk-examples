@@ -15,7 +15,7 @@ export default function Index() {
             These examples demonstrates how to use Stunk with React.
           </h3>
         </div>
-        <div className="flex items-center gap-4 mt-10">
+        <div className="flex items-center gap-4 mt-10 flex-wrap max-w-[500px] justify-center">
           <Link to={"/counter"}>
             <button className="btn btn-lg">Counter</button>
           </Link>
@@ -33,6 +33,9 @@ export default function Index() {
           </Link>
           <Link to={"/users"}>
             <button className="btn btn-lg">Fetch Users</button>
+          </Link>
+          <Link to={"/form-manager"}>
+            <button className="btn btn-lg">Form Manager</button>
           </Link>
         </div>
       </div>
