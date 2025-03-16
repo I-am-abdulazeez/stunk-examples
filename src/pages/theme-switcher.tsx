@@ -2,8 +2,9 @@ import { useEffect } from "react";
 
 import { useChunk } from "stunk/react";
 
-import { themeChunk } from "@/store/theme-store";
 import GoBack from "@/components/shared/go-back";
+
+import { themeChunk } from "@/store/theme-store";
 
 export default function ThemeSwitcher() {
   const [theme, setTheme] = useChunk(themeChunk);
