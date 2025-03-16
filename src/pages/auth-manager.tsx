@@ -13,14 +13,17 @@ export default function AuthManager() {
       <Heading text="Auth Manager" />
       <div className="flex flex-col items-center gap-4 p-6 border-2 border-gray-700 rounded-lg">
         {auth.loading ? (
-          <button className="btn">
+          <button className="btn btn-lg">
             <span className="loading loading-spinner"></span>
             loading
           </button>
         ) : auth.isAuthenticated ? (
           <>
             <p className="text-lg">Welcome, {auth.user?.name}!</p>
-            <button onClick={logout} className="btn btn-error shadow-none">
+            <button
+              onClick={logout}
+              className="btn btn-error btn-lg shadow-none"
+            >
               Logout
             </button>
           </>
@@ -33,7 +36,7 @@ export default function AuthManager() {
                 email: "olamide@example.com",
               })
             }
-            className="btn btn-success shadow-none"
+            className="btn btn-success shadow-none btn-lg"
           >
             Login
           </button>
