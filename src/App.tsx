@@ -7,6 +7,7 @@ import ThemeSwitcher from "./pages/theme-switcher";
 import AuthManager from "./pages/auth-manager";
 import ShoppingCart from "./pages/cart";
 import UsersList from "./pages/users-list";
+import FormManager from "./pages/form-manager";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
       <Route path="/auth-manager" element={<AuthManager />} />
       <Route path="/cart" element={<ShoppingCart />} />
       <Route path="/users" element={<UsersList />} />
+      <Route path="/form-manager" element={<FormManager />} />
     </Routes>
   );
 }
