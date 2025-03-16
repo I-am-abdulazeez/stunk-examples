@@ -9,8 +9,8 @@
   font-weight: 400;
 
   color-scheme: light dark;
-  color: #030712;
-  background-color: #ffffff; /* Default to light theme */
+  color: #fff;
+  background-color: #030712;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
