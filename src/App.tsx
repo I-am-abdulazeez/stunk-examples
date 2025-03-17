@@ -8,6 +8,7 @@ import AuthManager from "./pages/auth-manager";
 import ShoppingCart from "./pages/cart";
 import UsersList from "./pages/users-list";
 import FormManager from "./pages/form-manager";
+import NotifyExample from "./pages/noti-example";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
       <Route path="/cart" element={<ShoppingCart />} />
       <Route path="/users" element={<UsersList />} />
       <Route path="/form-manager" element={<FormManager />} />
+      <Route path="/notify" element={<NotifyExample />} />
     </Routes>
   );
 }
