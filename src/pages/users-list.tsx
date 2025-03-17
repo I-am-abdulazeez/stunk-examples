@@ -22,7 +22,7 @@ export default function UserList() {
         ))}
       </ul>
 
-      <button onClick={() => reload()} className="btn btn-primary btn-lg mt-4">
+      <button onClick={() => reload()} className="btn btn-primary mt-4">
         Reload
       </button>
       <GoBack />
