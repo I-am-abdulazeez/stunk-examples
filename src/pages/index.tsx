@@ -40,6 +40,9 @@ export default function Index() {
           <Link to={"/notify"}>
             <button className="btn btn-lg">Notification</button>
           </Link>
+          <Link to={"/multi-step"}>
+            <button className="btn btn-lg">Multi Step Wizard</button>
+          </Link>
         </div>
       </div>
     </>
