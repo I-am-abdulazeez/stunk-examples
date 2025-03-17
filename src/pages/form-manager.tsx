@@ -68,13 +68,10 @@ export default function FormManager() {
         </div>
 
         <div className="flex gap-2">
-          <button
-            onClick={submitForm}
-            className="btn btn-primary btn-lg flex-1"
-          >
+          <button onClick={submitForm} className="btn btn-primary flex-1">
             Submit
           </button>
-          <button onClick={resetForm} className="btn btn-outline btn-lg flex-1">
+          <button onClick={resetForm} className="btn btn-outline flex-1">
             Reset
           </button>
         </div>
