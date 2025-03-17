@@ -39,5 +39,5 @@ export const removeFromCart = (id: string) => {
 };
 
 export const clearCart = () => {
-  cartChunk.set({ items: [] });
+  cartChunk.reset();
 };
