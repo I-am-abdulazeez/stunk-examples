@@ -2,7 +2,7 @@ import { addNotification } from "@/store/noti-store";
 
 export default function NotiStyle({
   header,
-  variant = "dashed",
+  variant,
 }: {
   header: string;
   variant: "default" | "soft" | "outline" | "dashed";
