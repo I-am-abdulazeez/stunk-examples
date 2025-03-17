@@ -12,7 +12,7 @@ export const getAlertClass = (
     default: baseClass,
     soft: `${baseClass} alert-soft`,
     outline: `${baseClass} alert-outline`,
-    dashed: `${baseClass} alert-border`,
+    dashed: `${baseClass} alert-dash`,
   };
 
   return variants[variant];
