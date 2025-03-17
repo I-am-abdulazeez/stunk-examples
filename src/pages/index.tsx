@@ -37,6 +37,9 @@ export default function Index() {
           <Link to={"/form-manager"}>
             <button className="btn btn-lg">Form Manager</button>
           </Link>
+          <Link to={"/notify"}>
+            <button className="btn btn-lg">Notification</button>
+          </Link>
         </div>
       </div>
     </>
