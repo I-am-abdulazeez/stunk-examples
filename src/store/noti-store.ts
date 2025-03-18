@@ -1,23 +1,21 @@
 import { chunk } from "stunk";
 
+import { NotiType, NotiVariant } from "@/utils";
+
 export type Notification = {
   id: string;
   message: string;
-  type: "success" | "error" | "info" | "warning",
-  variant: "default" | "soft" | "outline" | "dashed"
+  type: NotiType,
+  variant: NotiVariant
 };
 
 export const notificationsChunk = chunk<Notification[]>([]);
 
-export const addNotification = (
-  message: string,
-  type: "success" | "error" | "info" | "warning",
-  variant: "default" | "soft" | "outline" | "dashed" = "default"
-) => {
+export const addNotification = (message: string, type: NotiType, variant: NotiVariant) => {
   const id = crypto.randomUUID();
   notificationsChunk.set((prev) => [...prev, { id, message, type, variant }]);
 
-  setTimeout(() => removeNotification(id), 3000);
+  setTimeout(() => removeNotification(id), 4000);
 };
 
 export const removeNotification = (id: string) => {
