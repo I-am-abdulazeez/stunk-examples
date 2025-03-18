@@ -2,18 +2,36 @@ export const numberWithComma = (number: string) => {
   return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 };
 
-export const getAlertClass = (
-  type: "success" | "error" | "info" | "warning",
-  variant: "default" | "soft" | "outline" | "dashed"
-) => {
-  const baseClass = `alert alert-${type}`;
+export type NotiType = "success" | "error" | "info" | "warning";
+export type NotiVariant = "default" | "soft" | "outline" | "dash";
 
-  const variants = {
-    default: baseClass,
-    soft: `${baseClass} alert-soft`,
-    outline: `${baseClass} alert-outline`,
-    dashed: `${baseClass} alert-dash`,
+export const getAlertClass = (type: NotiType, variant: NotiVariant) => {
+  const baseClasses = "alert";
+
+  const typeClasses = {
+    success: "alert-success",
+    error: "alert-error",
+    info: "alert-info",
+    warning: "alert-warning",
   };
 
-  return variants[variant];
+  const variantClasses = {
+    default: "",
+    soft: "alert-soft",
+    outline: "alert-outline",
+    dash: "alert-dash",
+  };
+
+  return `${baseClasses} ${typeClasses[type]} ${variantClasses[variant]}`;
+};
+
+export const getButtonClass = (type: NotiType, variant: NotiVariant) => {
+  const baseClass = "btn w-full";
+
+  if (variant === "default") return `${baseClass} btn-${type}`;
+  if (variant === "soft") return `${baseClass} btn-${type} btn-soft`;
+  if (variant === "outline") return `${baseClass} btn-${type} btn-outline`;
+  if (variant === "dash") return `${baseClass} btn-${type} btn-dash`;
+
+  return baseClass;
 };
