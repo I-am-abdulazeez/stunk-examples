@@ -10,7 +10,7 @@ import UsersList from "./pages/users-list";
 import FormManager from "./pages/form-manager";
 import NotifyExample from "./pages/noti-example";
 import MultiStepWizard from "./pages/multi-step-wizard";
-// import Kanban from "./pages/kanban";
+import Kanban from "./pages/kanban";
 
 function App() {
   return (
@@ -25,7 +25,7 @@ function App() {
       <Route path="/form-manager" element={<FormManager />} />
       <Route path="/notify" element={<NotifyExample />} />
       <Route path="/multi-step" element={<MultiStepWizard />} />
-      {/* <Route path="/kanban" element={<Kanban />} /> */}
+      <Route path="/kanban" element={<Kanban />} />
     </Routes>
   );
 }
