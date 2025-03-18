@@ -7,7 +7,7 @@ import GoBack from "@/components/shared/go-back";
 
 export default function Todo() {
   return (
-    <div>
+    <div className="px-5 sm:px-5">
       <Heading text="Todo List" />
       <TodosStat />
       <TodoForm />
