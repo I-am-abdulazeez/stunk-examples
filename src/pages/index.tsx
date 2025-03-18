@@ -22,7 +22,7 @@ export default function Index() {
           <AppLink to="/form-manager" text="Form Manager" />
           <AppLink to="/notify" text="Notification" />
           <AppLink to="/multi-step" text="Multi Step Wizard" />
-          <AppLink to="/kanaban" text="Kanban Board" />
+          <AppLink to="/kanban" text="Kanban Board" />
         </div>
       </div>
     </>
