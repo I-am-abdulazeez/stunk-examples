@@ -28,9 +28,6 @@ export default function Summary() {
           <strong>Email:</strong> {wizard.data.email}
         </p>
         <p>
-          <strong>Email:</strong> {wizard.data.email}
-        </p>
-        <p>
           <strong>Address:</strong> {wizard.data.address}
         </p>
         <p>
@@ -38,7 +35,7 @@ export default function Summary() {
         </p>
       </div>
       <div className="flex justify-between">
-        <button onClick={prevStep} className="btn btn-outline">
+        <button onClick={prevStep} className="btn btn-secondary">
           Back
         </button>
         <button onClick={reset} className="btn btn-warning">
