@@ -8,9 +8,9 @@ export default function NotiStyle({
   variant: "default" | "soft" | "outline" | "dashed";
 }) {
   return (
-    <div className="mb-5">
+    <div className="mb-5 px-7">
       <p className="mb-5 text-left">{header} Notification</p>
-      <div className="flex gap-2">
+      <div className="flex gap-3 flex-col sm:flex-row">
         <button
           onClick={() => addNotification("Success!", "success", variant)}
           className="btn btn-success"
