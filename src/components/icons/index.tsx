@@ -12,6 +12,19 @@ export const DeleteIcon = () => {
   );
 };
 
+export const EditIcon = () => {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      className="h-4 w-4"
+      viewBox="0 0 20 20"
+      fill="currentColor"
+    >
+      <path d="M13.586 3.586a2 2 0 112.828 2.828l-10 10a2 2 0 01-1.414.586H3a1 1 0 01-1-1v-2a2 2 0 01.586-1.414l10-10z" />
+    </svg>
+  );
+};
+
 export const CartIcon = () => {
   return (
     <svg
