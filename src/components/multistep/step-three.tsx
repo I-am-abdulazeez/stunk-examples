@@ -12,7 +12,7 @@ export default function StepThree() {
 
   return (
     <div className="p-6 max-w-md mx-auto border border-gray-600 rounded-lg space-y-3">
-      <h2 className="text-xl font-bold">Step 3: Address & Age</h2>
+      <h2 className="text-xl font-bold">Address & Age</h2>
 
       <label className="block text-lg text-left font-medium">Address</label>
       <input
