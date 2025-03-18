@@ -78,9 +78,9 @@ A multi-step form using Stunk to persist state between steps.
 
 A task management board with drag-and-drop functionality.
 
----------Thank You!!!---------
-
 **You can also switch to other branches to see how Stunk is used in vanilla JS, vanilla TS, etc.**
+
+---------Thank You!!!---------
 
 ## Contributing
 
