@@ -1,5 +1,4 @@
 import { useState } from "react";
-
 import { useChunk } from "stunk/react";
 
 import { notificationsChunk, removeNotification } from "@/store/noti-store";
@@ -17,23 +16,26 @@ export default function Notifications() {
 
   return (
     <div className="fixed top-4 right-4 flex flex-col gap-2">
-      {notifications.map((notif) => (
-        <div
-          className={`flex justify-between items-center gap-2 transition-opacity duration-300 ${
-            fadingOut[notif.id] ? "animate-fadeOut" : "animate-fadeIn"
-          } alert ${getAlertClass(notif.type, notif.variant)}`}
-          key={notif.id}
-          role="alert"
-        >
-          <span>{notif.message}</span>
-          <button
-            onClick={() => handleRemove(notif.id)}
-            className="btn btn-sm bg-transparent text-inherit border-none shadow-none hover:bg-transparent focus:ring-0"
+      {notifications.map((notif) => {
+        const alertClass = getAlertClass(notif.type, notif.variant);
+        return (
+          <div
+            className={`w-fit max-w-xs flex items-center justify-between gap-2 px-4 py-3 rounded-md shadow-md transition-opacity duration-300 ${
+              fadingOut[notif.id] ? "animate-fadeOut" : "animate-fadeIn"
+            } ${alertClass}`}
+            key={notif.id}
+            role="alert"
           >
-            ✖
-          </button>
-        </div>
-      ))}
+            <span className="break-words">{notif.message}</span>
+            <button
+              onClick={() => handleRemove(notif.id)}
+              className="btn btn-sm bg-transparent text-inherit border-none shadow-none hover:bg-transparent focus:ring-0"
+            >
+              ✖
+            </button>
+          </div>
+        );
+      })}
     </div>
   );
 }
