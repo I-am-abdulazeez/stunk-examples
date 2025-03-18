@@ -25,7 +25,7 @@ function App() {
       <Route path="/form-manager" element={<FormManager />} />
       <Route path="/notify" element={<NotifyExample />} />
       <Route path="/multi-step" element={<MultiStepWizard />} />
-      <Route path="/kanban" element={<Kanban />} />
+      {/* <Route path="/kanban" element={<Kanban />} /> */}
     </Routes>
   );
 }
