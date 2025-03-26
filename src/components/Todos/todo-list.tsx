@@ -23,7 +23,6 @@ export default function TodoList() {
   const filteredTodos = useComputed(
     [todosChunk, filterChunk],
     (allTodos, currentFilter) => {
-      console.log("computed");
       if (currentFilter === "all") return allTodos;
       if (currentFilter === "completed")
         return allTodos.filter((todo) => todo.completed);
