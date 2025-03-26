@@ -28,7 +28,7 @@ export const showCategoryFormChunk = chunk(false);
 export const filterChunk = chunk('all');
 
 
-export const stats = computed([todosChunk], (allTodos) => {
+export const stats = todosChunk.derive((allTodos) => {
   return {
     total: allTodos.length,
     completed: allTodos.filter(todo => todo.completed).length,
