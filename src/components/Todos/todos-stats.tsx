@@ -1,9 +1,8 @@
-import { useComputed } from "stunk/react";
+import { useDerive } from "stunk/react";
 import { todosChunk } from "../../store/todo-store";
 
 export default function TodosStat() {
-  const stats = useComputed([todosChunk], (allTodos) => {
-    console.log("Recalculating");
+  const stats = useDerive(todosChunk, (allTodos) => {
     return {
       total: allTodos.length,
       completed: allTodos.filter((todo) => todo.completed).length,
@@ -11,7 +10,6 @@ export default function TodosStat() {
     };
   });
 
-  console.log(stats);
   return (
     <div className="stats w-full">
       <div className="stat">
