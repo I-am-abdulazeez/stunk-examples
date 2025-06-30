@@ -28,7 +28,14 @@ const wizard = chunk<WizardState>({
     address: "",
     age: "",
   },
-  errors: {},
+  errors: {
+    firstName: "",
+    lastName: "",
+    email: "",
+    password: "",
+    address: "",
+    age: "",
+  },
   touched: {}
 
 }, [validationMiddleware]);
