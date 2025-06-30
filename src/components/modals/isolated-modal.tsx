@@ -1,3 +1,4 @@
+import { useMemo } from "react";
 import { chunk } from "stunk";
 import { useChunk } from "stunk/react";
 
@@ -11,7 +12,7 @@ type Course = {
 export default function IsolatedModal({ course }: Course) {
   // You can also hold it with useMemo() - useMemo(() => chunk(false), []);
   // But this is more readable and easier to manage
-  const modalState = chunk(false);
+  const modalState = useMemo(() => chunk(false), []);
   const [isOpen, setIsOpen] = useChunk(modalState);
 
   const toggleModal = () => setIsOpen((prev) => !prev);
