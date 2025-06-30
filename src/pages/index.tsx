@@ -23,6 +23,7 @@ export default function Index() {
           <AppLink to="/notify" text="Notification" />
           <AppLink to="/multi-step" text="Multi Step Wizard" />
           <AppLink to="/kanban" text="Kanban Board (lg screens only)" />
+          <AppLink to="/modal" text="Modal Page " />
         </div>
       </div>
     </>
