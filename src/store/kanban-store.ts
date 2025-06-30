@@ -31,6 +31,7 @@ const initialState: KanbanState = {
       status: "todo",
       priority: "high",
       createdAt: new Date().toISOString(),
+      dueDate: new Date(Date.now() + 3 * 24 * 60 * 60 * 1000).toISOString(), // Due in 3 days
     },
     {
       id: "task-2",
@@ -39,6 +40,7 @@ const initialState: KanbanState = {
       status: "in-progress",
       priority: "medium",
       createdAt: new Date().toISOString(),
+      dueDate: new Date(Date.now() + 5 * 24 * 60 * 60 * 1000).toISOString(), // Due in 5 days
     },
     {
       id: "task-3",
@@ -56,6 +58,7 @@ const initialState: KanbanState = {
       status: "review",
       priority: "low",
       createdAt: new Date().toISOString(),
+      dueDate: new Date(Date.now() + 10 * 24 * 60 * 60 * 1000).toISOString(), // Due in 10 days
     },
     {
       id: "task-5",
@@ -64,6 +67,7 @@ const initialState: KanbanState = {
       status: "done",
       priority: "medium",
       createdAt: new Date().toISOString(),
+      dueDate: new Date(Date.now() + 2 * 24 * 60 * 60 * 1000).toISOString(), // Due in 2 days
     },
   ],
   columns: [
