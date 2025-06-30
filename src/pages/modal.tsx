@@ -16,7 +16,7 @@ export default function ModalPage() {
         ))}
       </div>
       <h1 className="text-2xl font-bold mt-10 mb-4 text-left">Global Modal</h1>
-      <p className="mb-4">
+      <p className="mb-4 text-left">
         This is an example of a global modal that can be used across the
         application. It uses a global state to manage its visibility.
       </p>
