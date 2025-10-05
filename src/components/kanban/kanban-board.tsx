@@ -4,7 +4,7 @@ import { DndContext, closestCorners, DragEndEvent } from "@dnd-kit/core";
 import { Plus, LayoutGrid } from "lucide-react";
 
 import TaskForm from "./kanban-form";
-import KanbanColumn from "./kanaban-column";
+import KanbanColumn from "./kanban-column";
 
 import {
   kanbanChunk,
