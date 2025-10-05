@@ -1,4 +1,5 @@
 import { useChunk } from "stunk/react";
+import { User, ChevronRight, AlertCircle } from "lucide-react";
 
 import { nextStep, updateField, wizardChunk } from "@/store/wizard-store";
 
@@ -6,40 +7,82 @@ export default function StepOne() {
   const [wizard, setWizard] = useChunk(wizardChunk);
 
   return (
-    <div className="p-6 max-w-md mx-auto border border-gray-600 rounded-lg space-y-3">
-      <h2 className="text-xl font-bold">Personal Info</h2>
-      <label className="block text-lg text-left font-medium">First Name</label>
-      <input
-        type="text"
-        value={wizard.data.firstName}
-        onChange={(e) =>
-          setWizard((prev) => updateField(prev, { firstName: e.target.value }))
-        }
-        placeholder="AbdulAzeez"
-        className="input input-bordered w-full"
-      />
-      {wizard.touched.firstName && wizard.errors.firstName && (
-        <p className="text-red-500 text-left">{wizard.errors.firstName}</p>
-      )}
+    <div className="card bg-base-200 border border-base-300">
+      <div className="card-body p-8">
+        <h2 className="card-title text-2xl mb-6 flex items-center gap-2">
+          <User className="w-6 h-6 text-[#2af4c2]" />
+          Personal Information
+        </h2>
 
-      <label className="block text-lg text-left font-medium">Last Name</label>
-      <input
-        type="text"
-        value={wizard.data.lastName}
-        onChange={(e) =>
-          setWizard((prev) => updateField(prev, { lastName: e.target.value }))
-        }
-        placeholder="Olanrewaju"
-        className="input input-bordered w-full"
-      />
-      {wizard.touched.lastName && wizard.errors.lastName && (
-        <p className="text-red-500 text-left">{wizard.errors.lastName}</p>
-      )}
+        <div className="space-y-4">
+          <div className="form-control text-left">
+            <div className="mb-2">
+              <span className="font-semibold">First Name</span>
+            </div>
+            <input
+              type="text"
+              value={wizard.data.firstName}
+              onChange={(e) =>
+                setWizard((prev) =>
+                  updateField(prev, { firstName: e.target.value })
+                )
+              }
+              placeholder="Enter your first name"
+              className={`input input-bordered w-full ${
+                wizard.touched.firstName && wizard.errors.firstName
+                  ? "input-error"
+                  : ""
+              }`}
+            />
+            {wizard.touched.firstName && wizard.errors.firstName && (
+              <label className="label">
+                <span className="label-text-alt text-error flex items-center gap-1">
+                  <AlertCircle className="w-3 h-3" />
+                  {wizard.errors.firstName}
+                </span>
+              </label>
+            )}
+          </div>
 
-      <div className="text-right">
-        <button onClick={nextStep} className="btn btn-primary">
-          Next
-        </button>
+          <div className="form-control text-left">
+            <div className="mb-2">
+              <span className="font-semibold">Last Name</span>
+            </div>
+            <input
+              type="text"
+              value={wizard.data.lastName}
+              onChange={(e) =>
+                setWizard((prev) =>
+                  updateField(prev, { lastName: e.target.value })
+                )
+              }
+              placeholder="Enter your last name"
+              className={`input input-bordered w-full ${
+                wizard.touched.lastName && wizard.errors.lastName
+                  ? "input-error"
+                  : ""
+              }`}
+            />
+            {wizard.touched.lastName && wizard.errors.lastName && (
+              <label className="label">
+                <span className="label-text-alt text-error flex items-center gap-1">
+                  <AlertCircle className="w-3 h-3" />
+                  {wizard.errors.lastName}
+                </span>
+              </label>
+            )}
+          </div>
+        </div>
+
+        <div className="flex justify-end mt-6">
+          <button
+            onClick={nextStep}
+            className="btn bg-[#2af4c2] hover:bg-[#24d4a8] border-none text-neutral-900 font-semibold gap-2"
+          >
+            Next Step
+            <ChevronRight className="w-4 h-4" />
+          </button>
+        </div>
       </div>
     </div>
   );
