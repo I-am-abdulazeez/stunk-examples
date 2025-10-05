@@ -25,6 +25,10 @@ export default function Index() {
           <AppLink to="/kanban" text="Kanban Board (lg screens only)" />
           <AppLink to="/modal" text="Modals " />
           <AppLink to="/users-paginated" text="Paginated Users" />
+          <AppLink to="/users-infinite" text="Infinite Scroll Posts" />
+        </div>
+        <div className="mt-10 text-sm text-base-content/70">
+          Note: These examples are built using Stunk v2.6.0 and React 19.
         </div>
       </div>
     </>
