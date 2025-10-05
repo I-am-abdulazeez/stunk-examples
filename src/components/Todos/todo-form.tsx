@@ -1,5 +1,6 @@
 import { batch } from "stunk";
 import { useChunk } from "stunk/react";
+import { Plus, X, FolderPlus } from "lucide-react";
 
 import {
   categoriesChunk,
@@ -18,11 +19,9 @@ export default function TodoForm() {
     showCategoryFormChunk
   );
   const [newTodo, setNewTodo] = useChunk(newTodoChunk);
-
   const [selectedCategory, setSelectedCategory] = useChunk(
     selectedCategoryChunk
   );
-
   const [categories, setCategories] = useChunk(categoriesChunk);
   const [newCategory, setNewCategory] = useChunk(newCategoryChunk);
 
@@ -61,69 +60,91 @@ export default function TodoForm() {
   };
 
   return (
-    <div className="border-gray-50 rounded-lg mb-6">
-      <h2 className="text-xl font-semibold mb-4 text-gray-700">Add New Task</h2>
-      <TodoFilter />
-      <form onSubmit={handleAddTodo} className="flex flex-col gap-4">
-        <input
-          type="text"
-          value={newTodo}
-          onChange={(e) => setNewTodo(e.target.value)}
-          placeholder="What needs to be done?"
-          className="input input-bordered w-full input-lg"
-          required
-        />
+    <div className="card bg-base-200 border border-base-300 sticky top-4">
+      <div className="card-body p-6">
+        <h2 className="card-title text-lg mb-4">
+          <Plus className="w-5 h-5 text-[#2af4c2]" />
+          Add New Task
+        </h2>
 
-        <div className="flex gap-2 items-center">
-          <select
-            value={selectedCategory}
-            onChange={(e) => setSelectedCategory(e.target.value)}
-            className="select select-bordered select-lg flex-grow"
-          >
-            {categories.map((category) => (
-              <option key={category.id} value={category.id}>
-                {category.name}
-              </option>
-            ))}
-          </select>
+        <TodoFilter />
+
+        <form onSubmit={handleAddTodo} className="space-y-4 mt-4">
+          <div className="form-control">
+            <input
+              type="text"
+              value={newTodo}
+              onChange={(e) => setNewTodo(e.target.value)}
+              placeholder="What needs to be done?"
+              className="input input-bordered w-full"
+              required
+            />
+          </div>
+
+          <div className="flex gap-2">
+            <select
+              value={selectedCategory}
+              onChange={(e) => setSelectedCategory(e.target.value)}
+              className="select select-bordered flex-1"
+            >
+              {categories.map((category) => (
+                <option key={category.id} value={category.id}>
+                  {category.name}
+                </option>
+              ))}
+            </select>
+
+            <button
+              type="button"
+              onClick={() => setShowCategoryForm(!showCategoryForm)}
+              className={`btn btn-square ${
+                showCategoryForm ? "btn-error" : "btn-ghost"
+              }`}
+            >
+              {showCategoryForm ? (
+                <X className="w-5 h-5" />
+              ) : (
+                <FolderPlus className="w-5 h-5" />
+              )}
+            </button>
+          </div>
+
+          {showCategoryForm && (
+            <div className="alert">
+              <div className="w-full">
+                <h3 className="font-semibold text-sm mb-3 flex items-center gap-2">
+                  <FolderPlus className="w-4 h-4" />
+                  Add New Category
+                </h3>
+                <div className="flex gap-2 mb-3">
+                  <input
+                    type="text"
+                    value={newCategory}
+                    onChange={(e) => setNewCategory(e.target.value)}
+                    placeholder="Category name"
+                    className="input input-bordered input-sm flex-1"
+                  />
+                  <button
+                    className="btn btn-sm bg-[#2af4c2] hover:bg-[#24d4a8] border-none text-neutral-900"
+                    onClick={handleAddCategory}
+                  >
+                    Add
+                  </button>
+                </div>
+                <TodoCategory />
+              </div>
+            </div>
+          )}
 
           <button
-            type="button"
-            onClick={() => setShowCategoryForm(!showCategoryForm)}
-            className="btn btn-circle btn-md text-2xl"
+            type="submit"
+            className="btn bg-[#2af4c2] hover:bg-[#24d4a8] border-none text-neutral-900 w-full font-semibold"
           >
-            {showCategoryForm ? "×" : "+"}
+            <Plus className="w-5 h-5" />
+            Add Task
           </button>
-        </div>
-
-        {showCategoryForm && (
-          <div className="p-4 rounded-md border border-gray-600">
-            <h3 className="text-md font-medium mb-2">Add New Category</h3>
-            <div className="flex gap-2">
-              <input
-                type="text"
-                value={newCategory}
-                onChange={(e) => setNewCategory(e.target.value)}
-                placeholder="Category name"
-                className="input input-bordered input-md flex-grow"
-              />
-              <button
-                className="btn btn-md btn-primary"
-                onClick={handleAddCategory}
-              >
-                Add
-              </button>
-            </div>
-            <div className="mt-4 flex gap-3">
-              <TodoCategory />
-            </div>
-          </div>
-        )}
-
-        <button type="submit" className="btn btn-primary btn-lg">
-          Add Task
-        </button>
-      </form>
+        </form>
+      </div>
     </div>
   );
 }

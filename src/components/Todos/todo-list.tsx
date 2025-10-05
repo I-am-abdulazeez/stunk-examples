@@ -1,6 +1,5 @@
 import { useChunk, useChunkValue, useComputed } from "stunk/react";
-
-import { DeleteIcon } from "../icons";
+import { Trash2, Calendar } from "lucide-react";
 
 import { categoriesChunk, filterChunk, todosChunk } from "@/store/todo-store";
 
@@ -37,60 +36,69 @@ export default function TodoList() {
   );
 
   return (
-    <div className="bg-white rounded-lg overflow-hidden">
-      {filteredTodos.length === 0 ? (
-        <div className="p-8 text-center text-gray-500">
-          <p className="text-xl">No tasks found</p>
-          <p>Add some tasks or change your filter</p>
-        </div>
-      ) : (
-        <ul className="divide-y divide-gray-200">
-          {filteredTodos.map((todo) => {
-            const category = categories.find((c) => c.id === todo.categoryId);
+    <div className="card bg-base-200 border border-base-300">
+      <div className="card-body p-6">
+        {filteredTodos.length === 0 ? (
+          <div className="py-16 text-center">
+            <div className="text-6xl mb-4 opacity-20">📝</div>
+            <p className="text-xl font-semibold opacity-70">No tasks found</p>
+            <p className="text-sm opacity-50 mt-2">
+              Add some tasks or change your filter
+            </p>
+          </div>
+        ) : (
+          <div className="space-y-3">
+            {filteredTodos.map((todo) => {
+              const category = categories.find((c) => c.id === todo.categoryId);
 
-            return (
-              <li
-                key={todo.id}
-                className="flex items-center justify-between p-4 hover:bg-gray-50"
-              >
-                <div className="flex items-start flex-1 gap-3">
-                  <input
-                    type="checkbox"
-                    checked={todo.completed}
-                    onChange={() => toggleTodo(todo.id)}
-                    className="checkbox checkbox-primary mt-1"
-                  />
-                  <div>
-                    <p
-                      className={`${
-                        todo.completed
-                          ? "line-through text-gray-500"
-                          : "text-gray-800"
-                      } font-medium text-xl text-left`}
-                    >
-                      {todo.text}
-                    </p>
-                    <div className="flex gap-2 items-center">
-                      <span className="bg-cyan-300 text-sm font-medium px-1 text-gray-800 rounded-md">
-                        {category?.name}
-                      </span>
-                      <span className="text-sm text-gray-500">
-                        {new Date(todo.createdAt).toLocaleDateString()}
-                      </span>
+              return (
+                <div
+                  key={todo.id}
+                  className="card bg-base-100 border border-base-300 hover:border-[#2af4c2]/50 transition-colors"
+                >
+                  <div className="card-body p-4">
+                    <div className="flex items-start gap-3">
+                      <input
+                        type="checkbox"
+                        checked={todo.completed}
+                        onChange={() => toggleTodo(todo.id)}
+                        className="checkbox checkbox-success mt-1"
+                      />
+
+                      <div className="flex-1 min-w-0">
+                        <p
+                          className={`font-medium text-lg text-left ${
+                            todo.completed ? "line-through opacity-50" : ""
+                          }`}
+                        >
+                          {todo.text}
+                        </p>
+
+                        <div className="flex flex-wrap gap-2 mt-2">
+                          <div className="badge badge-sm bg-[#2af4c2]/20 text-[#2af4c2] border-[#2af4c2]/30">
+                            {category?.name}
+                          </div>
+                          <div className="badge badge-sm badge-ghost gap-1">
+                            <Calendar className="w-3 h-3" />
+                            {new Date(todo.createdAt).toLocaleDateString()}
+                          </div>
+                        </div>
+                      </div>
+
+                      <button
+                        className="btn btn-ghost btn-sm btn-square text-error hover:bg-error/10"
+                        onClick={() => deleteTodo(todo.id)}
+                      >
+                        <Trash2 className="w-4 h-4" />
+                      </button>
                     </div>
                   </div>
                 </div>
-                <button
-                  className="btn btn-circle btn-error btn-sm"
-                  onClick={() => deleteTodo(todo.id)}
-                >
-                  <DeleteIcon />
-                </button>
-              </li>
-            );
-          })}
-        </ul>
-      )}
+              );
+            })}
+          </div>
+        )}
+      </div>
     </div>
   );
 }

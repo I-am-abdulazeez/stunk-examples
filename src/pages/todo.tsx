@@ -7,13 +7,26 @@ import GoBack from "@/components/shared/go-back";
 
 export default function Todo() {
   return (
-    <div className="px-5 sm:px-5">
-      <Heading text="Todo List" />
-      <TodosStat />
-      <TodoForm />
-      <TodoList />
-      <TodoHistory />
-      <GoBack />
+    <div className="min-h-screen bg-base-100">
+      <div className="container mx-auto px-4 py-8 max-w-5xl">
+        <Heading text="Todo List" />
+        <TodosStat />
+
+        <div className="grid lg:grid-cols-3 gap-6 mt-8">
+          {/* Left Column - Form */}
+          <div className="lg:col-span-1">
+            <TodoForm />
+            <TodoHistory />
+          </div>
+
+          {/* Right Column - List */}
+          <div className="lg:col-span-2">
+            <TodoList />
+          </div>
+        </div>
+
+        <GoBack />
+      </div>
     </div>
   );
 }
