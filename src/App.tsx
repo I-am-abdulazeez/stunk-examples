@@ -13,6 +13,7 @@ import MultiStepWizard from "@/pages/multi-step-wizard";
 import Kanban from "@/pages/kanban";
 import ModalPage from "@/pages/modal";
 import PaginatedUserList from "@/pages/users-paginated";
+import InfiniteScrollPosts from "./pages/infinite-posts";
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
       <Route path="/kanban" element={<Kanban />} />
       <Route path="/modal" element={<ModalPage />} />
       <Route path="/users-paginated" element={<PaginatedUserList />} />
+      <Route path="/users-infinite" element={<InfiniteScrollPosts />} />
     </Routes>
   );
 }
