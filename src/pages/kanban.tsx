@@ -4,12 +4,14 @@ import Heading from "@/components/shared/heading";
 
 export default function Kanban() {
   return (
-    <>
-      <Heading text="Kanban Stunk" />
+    <div className="min-h-screen bg-base-100">
       <div className="container mx-auto px-4 py-8">
+        <Heading text="Kanban Board" />
         <KanbanBoard />
+        <div className="mt-6">
+          <GoBack />
+        </div>
       </div>
-      <GoBack />
-    </>
+    </div>
   );
 }
