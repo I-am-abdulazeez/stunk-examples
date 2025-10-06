@@ -63,7 +63,9 @@ export default function Index() {
 
       <div className="container mx-auto px-6 py-16">
         <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold mb-4">Interactive Examples</h2>
+          <h2 className="text-3xl font-bold mb-4">
+            {examples.length} Interactive Examples
+          </h2>
           <p className="text-lg text-base-content/70">
             Click any card to explore the example
           </p>
@@ -79,7 +81,10 @@ export default function Index() {
       <footer className="footer footer-center p-10 bg-base-200 text-base-content">
         <div>
           <p className="text-sm opacity-70">
-            Built with modern web technologies and best practices
+            Built with ❤️ using Vite, React, Tailwind CSS, DaisyUI, and Stunk.
+          </p>
+          <p className="text-sm opacity-70">
+            © {new Date().getFullYear()} Stunk Examples .
           </p>
         </div>
       </footer>
