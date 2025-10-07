@@ -13,7 +13,8 @@ import MultiStepWizard from "@/pages/multi-step-wizard";
 import Kanban from "@/pages/kanban";
 import ModalPage from "@/pages/modal";
 import PaginatedUserList from "@/pages/users-paginated";
-import InfiniteScrollPosts from "./pages/infinite-posts";
+import InfiniteScrollPosts from "@/pages/infinite-posts";
+import CountryStatePicker from "@/pages/country-state-picker";
 
 function App() {
   return (
@@ -32,6 +33,7 @@ function App() {
       <Route path="/modal" element={<ModalPage />} />
       <Route path="/users-paginated" element={<PaginatedUserList />} />
       <Route path="/users-infinite" element={<InfiniteScrollPosts />} />
+      <Route path="/country-state-picker" element={<CountryStatePicker />} />
     </Routes>
   );
 }
