@@ -1,3 +1,4 @@
+import GoBack from "@/components/shared/go-back";
 import {
   countriesChunk,
   countryCode,
@@ -65,7 +66,7 @@ export default function CountryStatePicker() {
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center">
+    <div className="min-h-screen flex flex-col items-center justify-center">
       <div className="flex w-9/10 min-w-[320px] md:w-fit flex-col gap-5 bg-base-200 px-7.5 py-10">
         <div className="flex flex-col md:flex-row justify-around gap-5">
           <select
@@ -154,6 +155,10 @@ export default function CountryStatePicker() {
             </>
           )}
         </button>
+      </div>
+
+      <div className="mt-6">
+        <GoBack />
       </div>
     </div>
   );

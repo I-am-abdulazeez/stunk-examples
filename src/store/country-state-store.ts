@@ -85,6 +85,7 @@ export function setCity(city: string) {
   pickerChunk.set({ ...pickerChunk.get(), city });
 }
 
+// Simple Validation
 export async function validateAndSubmitAddress() {
   const fields: string[] = [];
   validationResponse.set([true, validationResponse.get()[1]]);
