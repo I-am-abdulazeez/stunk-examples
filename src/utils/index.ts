@@ -35,3 +35,9 @@ export const getButtonClass = (type: NotiType, variant: NotiVariant) => {
 
   return baseClass;
 };
+
+export function delay(del: number) {
+  return new Promise((resolve) => {
+    setTimeout(resolve, del);
+  });
+}

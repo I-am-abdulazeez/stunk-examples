@@ -1,5 +1,5 @@
-import { asyncChunk, chunk, computed, select } from "stunk";
-import { useAsyncChunk, useChunk } from "stunk/react";
+import { delay } from "@/utils";
+import { asyncChunk, chunk } from "stunk";
 
 export type Country = {
   name: string;
@@ -16,10 +16,21 @@ type WithEmoji = Country & { emoji: string };
 export type Address = {
   country: Country;
   city: string;
+  state: string;
 };
 
-export const pickerChunk = chunk<Address>({} as Address);
-export const country = select(pickerChunk, (ch) => ch.country);
+export type ValidationResponse = [loading: boolean, error: string];
+
+export const pickerChunk = chunk<Address>({
+  country: { code: "", name: "" } as Country,
+  city: "",
+  state: "",
+});
+export const countryCode = chunk<string>("");
+export const stateChunk = chunk<string>("");
+// export const validationResponse = chunk<ValidationResponse>([true, ""])
+export const validationResponse = chunk<ValidationResponse>([false, ""]);
+export const validationLoading = chunk(false);
 
 export const countriesChunk = asyncChunk<WithEmoji[]>(() =>
   fetch(
@@ -43,7 +54,7 @@ export const countriesChunk = asyncChunk<WithEmoji[]>(() =>
 );
 
 export const states = asyncChunk<State[]>(async () => {
-  const code = country.get()?.code;
+  const code = countryCode.get();
   if (!code) return Promise.resolve([]);
 
   const res = await fetch(
@@ -61,27 +72,57 @@ export const states = asyncChunk<State[]>(async () => {
   });
 });
 
-// pickerChunk.derive(({ country: {code} })=>{
-//    // code
-
-// })
-
-// export function useStates(): string[] {
-//   const {data, loading} = useAsyncChunk(states);
-
-//   return [];
-// }
-
-// export function useCountries() {
-//   // const countries = useChunk();
-//   return useAsyncChunk(countriesChunk);
-// }
-
 export function setCountry(country: Country) {
-  const state = { ...pickerChunk.get() };
-
-  state.country = country;
-  state.city = "";
-  pickerChunk.set(state);
+  pickerChunk.set({ country, state: "", city: "" });
   states.reload();
+}
+
+export function setState(_state: string) {
+  pickerChunk.set({ ...pickerChunk.get(), state: _state, city: "" });
+}
+
+export function setCity(city: string) {
+  pickerChunk.set({ ...pickerChunk.get(), city });
+}
+
+export async function validateAndSubmitAddress() {
+  const fields: string[] = [];
+  validationResponse.set([true, validationResponse.get()[1]]);
+  try {
+    const state = pickerChunk.get();
+
+    if (
+      state.country?.code?.trim() == "" ||
+      state.country?.name?.trim() == ""
+    ) {
+      fields.push("Country");
+    }
+
+    if (state.state.trim() == "") {
+      fields.push("State");
+    }
+
+    if (state.city.trim() == "") {
+      fields.push("City");
+    }
+    await delay(1000); // Simulate network delay
+    if (fields.length == 0) {
+      validationResponse.set([validationResponse.get()[0], ""]);
+    } else {
+      validationResponse.set([
+        validationResponse.get()[0],
+        `${fields.join(", ")} field${fields.length == 1 ? " is" : "s are"} required!!!`,
+      ]);
+    }
+  } finally {
+    validationResponse.set([false, validationResponse.get()[1]]);
+  }
+
+  if (!fields.length) {
+    alert(JSON.stringify(pickerChunk.get()));
+  }
+}
+
+export function clearValidationError() {
+  validationResponse.set([false, ""]);
 }
