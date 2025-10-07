@@ -4,122 +4,149 @@
 @plugin "daisyui";
 
 :root {
-  font-family: "Figtree", system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+    font-family: "Figtree", system-ui, Avenir, Helvetica, Arial, sans-serif;
+    line-height: 1.5;
+    font-weight: 400;
 
-  color-scheme: light dark;
-  color: #fff;
-  background-color: #030712;
+    color-scheme: light dark;
+    color: #fff;
+    background-color: #030712;
 
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 [data-theme="dark"] {
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #030712;
+    color: rgba(255, 255, 255, 0.87);
+    background-color: #030712;
 }
 
 [data-theme="light"] {
-  color: #030712;
-  background-color: #ffffff;
+    color: #030712;
+    background-color: #ffffff;
 }
 
 body {
-  transition: background-color 0.3s ease, color 0.3s ease;
+    transition:
+        background-color 0.3s ease,
+        color 0.3s ease;
 }
 
 body {
-  margin: 0;
+    margin: 0;
 }
 
 @media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+    :root {
+        color: #213547;
+        background-color: #ffffff;
+    }
+    a:hover {
+        color: #747bff;
+    }
+    button {
+        background-color: #f9f9f9;
+    }
 }
 
 #root {
-  min-width: 350px;
-  margin: 0 auto;
-  text-align: center;
+    min-width: 350px;
+    margin: 0 auto;
+    text-align: center;
 }
 
 .logo {
-  height: 7em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
+    height: 7em;
+    padding: 1.5em;
+    will-change: filter;
+    transition: filter 300ms;
 }
 .logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
+    filter: drop-shadow(0 0 2em #646cffaa);
 }
 .logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+    filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+.custom-select {
+    position: relative;
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+.custom-select::after {
+    content: "▼"; /* Or any other Unicode character or SVG icon */
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none; /* Prevents the arrow from interfering with select click */
+    /* Add styling for the arrow, e.g., color, font-size */
+    color: #fff;
+    font-size: 14px;
+}
+
+.spin {
+    animation-name: logo-spin;
+    animation-duration: 700ms;
+    animation-iteration-count: infinite;
+    animation-fill-mode: both;
 }
 
 @keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
 }
 
 @keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+    a:nth-of-type(2) .logo {
+        animation: logo-spin infinite 20s linear;
+    }
 }
 
 @keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(-10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 @keyframes fadeOut {
-  from {
-    opacity: 1;
-    transform: translateY(0);
-  }
-  to {
-    opacity: 0;
-    transform: translateY(-10px);
-  }
+    from {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    to {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
 }
 
 .animate-fadeIn {
-  animation: fadeIn 0.3s ease-out;
+    animation: fadeIn 0.3s ease-out;
 }
 
 .animate-fadeOut {
-  animation: fadeOut 0.3s ease-out forwards;
+    animation: fadeOut 0.3s ease-out forwards;
 }
