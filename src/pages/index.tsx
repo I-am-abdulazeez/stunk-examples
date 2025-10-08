@@ -11,7 +11,8 @@ import {
   Layers,
   Layout,
   Database,
-  Infinity,
+  InfinityIcon,
+  MapIcon,
 } from "lucide-react";
 
 export default function Index() {
@@ -28,7 +29,12 @@ export default function Index() {
     { to: "/kanban", text: "Kanban Board", icon: Layout },
     { to: "/modal", text: "Modals", icon: Box },
     { to: "/users-paginated", text: "Paginated Users", icon: Database },
-    { to: "/users-infinite", text: "Infinite Scroll", icon: Infinity },
+    { to: "/users-infinite", text: "Infinite Scroll", icon: InfinityIcon },
+    {
+      to: "/country-state-picker",
+      text: "Country State Picker",
+      icon: MapIcon,
+    },
   ];
 
   return (

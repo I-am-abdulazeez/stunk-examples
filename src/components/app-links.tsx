@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export default function AppLink({
   to,
   text,
@@ -10,7 +12,7 @@ export default function AppLink({
   index: number;
 }) {
   return (
-    <a href={to}>
+    <Link to={to}>
       <div
         className="card bg-base-200 hover:bg-base-300 border border-base-300 hover:border-[#2af4c2] transition-all duration-300 cursor-pointer group"
         style={{
@@ -24,6 +26,6 @@ export default function AppLink({
           <h3 className="card-title text-base mt-2">{text}</h3>
         </div>
       </div>
-    </a>
+    </Link>
   );
 }

@@ -1,19 +1,21 @@
+import { lazy } from "react";
 import { Route, Routes } from "react-router-dom";
 
-import Index from "@/pages";
-import Counter from "@/pages/counter";
-import Todo from "@/pages/todo";
-import ThemeSwitcher from "@/pages/theme-switcher";
-import AuthManager from "@/pages/auth-manager";
-import ShoppingCart from "@/pages/cart";
-import UsersList from "@/pages/users-list";
-import FormManager from "@/pages/form-manager";
-import NotifyExample from "@/pages/noti-example";
-import MultiStepWizard from "@/pages/multi-step-wizard";
-import Kanban from "@/pages/kanban";
-import ModalPage from "@/pages/modal";
-import PaginatedUserList from "@/pages/users-paginated";
-import InfiniteScrollPosts from "./pages/infinite-posts";
+const Index = lazy(() => import("@/pages"));
+const Counter = lazy(() => import("@/pages/counter"));
+const Todo = lazy(() => import("@/pages/todo"));
+const ThemeSwitcher = lazy(() => import("@/pages/theme-switcher"));
+const AuthManager = lazy(() => import("@/pages/auth-manager"));
+const ShoppingCart = lazy(() => import("@/pages/cart"));
+const UsersList = lazy(() => import("@/pages/users-list"));
+const FormManager = lazy(() => import("@/pages/form-manager"));
+const NotifyExample = lazy(() => import("@/pages/noti-example"));
+const MultiStepWizard = lazy(() => import("@/pages/multi-step-wizard"));
+const Kanban = lazy(() => import("@/pages/kanban"));
+const ModalPage = lazy(() => import("@/pages/modal"));
+const PaginatedUserList = lazy(() => import("@/pages/users-paginated"));
+const InfiniteScrollPosts = lazy(() => import("@/pages/infinite-posts"));
+const CountryStatePicker = lazy(() => import("@/pages/country-state-picker"));
 
 function App() {
   return (
@@ -32,6 +34,7 @@ function App() {
       <Route path="/modal" element={<ModalPage />} />
       <Route path="/users-paginated" element={<PaginatedUserList />} />
       <Route path="/users-infinite" element={<InfiniteScrollPosts />} />
+      <Route path="/country-state-picker" element={<CountryStatePicker />} />
     </Routes>
   );
 }
