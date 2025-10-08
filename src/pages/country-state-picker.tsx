@@ -73,7 +73,7 @@ export default function CountryStatePicker() {
             disabled={isLoading}
             value={code}
             name="country"
-            className="custom-select border border-slate-50 p-2.5 w-full md:w-[200px]"
+            className="select w-full md:w-[200px]"
             onChange={selectCountry}
           >
             <option className="bg-base-100 text-white" value={""}>
@@ -99,10 +99,10 @@ export default function CountryStatePicker() {
             disabled={isLoading}
             value={state}
             name="state"
-            className="custom-select border border-slate-50 p-2.5 w-full md:w-[200px]"
+            className="select w-full md:w-[200px]"
             onChange={selectState}
           >
-            <option value={""} className="custom-select bg-base-100 text-white">
+            <option value={""} className="bg-base-100 text-white">
               Select a State
             </option>
             {_states
@@ -121,7 +121,7 @@ export default function CountryStatePicker() {
             disabled={isLoading}
             value={city}
             name="city"
-            className="custom-select border border-slate-50 p-2.5 w-full md:w-[200px]"
+            className="select w-full md:w-[200px]"
             onChange={selectCity}
           >
             <option value={""} className="bg-base-100 text-white">
