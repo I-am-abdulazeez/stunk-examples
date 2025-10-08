@@ -1,3 +1,7 @@
+import { ArrowRightIcon, InfoIcon, LoaderCircleIcon } from "lucide-react";
+import { ChangeEvent, useMemo } from "react";
+import { useAsyncChunk, useChunk } from "stunk/react";
+
 import GoBack from "@/components/shared/go-back";
 import {
   countriesChunk,
@@ -12,9 +16,6 @@ import {
   validateAndSubmitAddress,
   clearValidationError,
 } from "@/store/country-state-store";
-import { ArrowRightIcon, InfoIcon, LoaderCircleIcon } from "lucide-react";
-import { ChangeEvent, useMemo } from "react";
-import { useAsyncChunk, useChunk } from "stunk/react";
 
 export default function CountryStatePicker() {
   const {
@@ -79,20 +80,19 @@ export default function CountryStatePicker() {
             <option className="bg-base-100 text-white" value={""}>
               Select a Country
             </option>
-            {countries
-              ? countries.map(({ code, name, emoji }, idx) => (
-                  <option
-                    className="bg-base-100 text-white"
-                    key={idx}
-                    value={code}
-                  >
-                    {`${emoji} ${name}`}
-                  </option>
-                ))
-              : null}
-            {loading ? (
+            {countries &&
+              countries.map(({ code, name, emoji }, idx) => (
+                <option
+                  className="bg-base-100 text-white"
+                  key={idx}
+                  value={code}
+                >
+                  {`${emoji} ${name}`}
+                </option>
+              ))}
+            {loading && (
               <option className="bg-base-100 text-white">Loading...</option>
-            ) : null}
+            )}
           </select>
 
           <select
@@ -105,16 +105,15 @@ export default function CountryStatePicker() {
             <option value={""} className="bg-base-100 text-white">
               Select a State
             </option>
-            {_states
-              ? _states.map(({ name }, idx) => (
-                  <option className="bg-base-100 text-white" key={idx}>
-                    {name}
-                  </option>
-                ))
-              : null}
-            {stLoad ? (
+            {_states &&
+              _states.map(({ name }, idx) => (
+                <option className="bg-base-100 text-white" key={idx}>
+                  {name}
+                </option>
+              ))}
+            {stLoad && (
               <option className="bg-base-100 text-white">Loading...</option>
-            ) : null}
+            )}
           </select>
 
           <select
@@ -135,12 +134,12 @@ export default function CountryStatePicker() {
           </select>
         </div>
 
-        {error.length ? (
+        {error.length && (
           <div className="flex gap-2.5 items-center text-red-700">
             <InfoIcon />
             {error}
           </div>
-        ) : null}
+        )}
 
         <button
           className="cursor-pointer inline-flex justify-center gap-2.5 bg-[#2af4c2] text-black p-5"
