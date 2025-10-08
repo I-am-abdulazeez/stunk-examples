@@ -125,5 +125,5 @@ export async function validateAndSubmitAddress() {
 }
 
 export function clearValidationError() {
-  validationResponse.set([false, ""]);
+  validationResponse.reset();
 }
