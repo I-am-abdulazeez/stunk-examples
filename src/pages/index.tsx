@@ -13,6 +13,7 @@ import {
   Database,
   InfinityIcon,
   MapIcon,
+  Github
 } from "lucide-react";
 
 export default function Index() {
@@ -46,7 +47,7 @@ export default function Index() {
               Stunk v2.7.1 + React 19
             </div>
             <h1 className="text-5xl md:text-7xl font-bold mb-6">
-              Vite + React + Stunk
+              Vite + React + <a href="https://stunk.vercel.app/" target="_blank">Stunk</a>
             </h1>
             <p className="text-xl md:text-2xl text-base-content/70 mb-8">
               Explore powerful state management patterns with interactive
@@ -87,10 +88,13 @@ export default function Index() {
       <footer className="footer footer-center p-10 bg-base-200 text-base-content">
         <div>
           <p className="text-sm opacity-70">
-            Built with ❤️ using Vite, React, Tailwind CSS, DaisyUI, and Stunk.
+            Built with ❤️ using <a href="https://vite.dev" target="_blank">Vite</a>, <a href="https://react.dev" target="_blank">React</a>, <a href="https://tailwindcss.com" target="_blank">Tailwind CSS</a>, <a href="https://daisyui.com" target="_blank">DaisyUI</a>, and <a href="https://stunk.vercel.app/" target="_blank">Stunk.</a>
           </p>
           <p className="text-sm opacity-70">
-            © {new Date().getFullYear()} Stunk Examples .
+            <a href="https://github.com/I-am-abdulazeez/stunk" target="_blank">Visit Stunk Github Repo</a>
+          </p>
+          <p className="text-sm opacity-70">
+            © {new Date().getFullYear()} <a href="https://github.com/I-am-abdulazeez/stunk-examples/" target="_blank">Stunk Examples.</a>
           </p>
         </div>
       </footer>
